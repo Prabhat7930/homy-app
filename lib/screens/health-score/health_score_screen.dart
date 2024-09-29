@@ -22,7 +22,7 @@ class _HealthScoreScreenState extends State<HealthScoreScreen>
 
   void onHomeButtonTap() {
     Navigator.pushNamedAndRemoveUntil(
-        context, Routes.homeScreen, (route) => false);
+        context, Routes.navHostScreen, (route) => false);
   }
 
   @override

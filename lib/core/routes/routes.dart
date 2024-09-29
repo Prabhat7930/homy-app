@@ -8,5 +8,5 @@ class Routes {
   static const personalDetailScreen = "/personal-details";
   static const dietPlanScreen = "/diet-plan";
   static const healthScoreScreen = "/health-score";
-  static const homeScreen = "/home";
+  static const navHostScreen = "/nav-host";
 }

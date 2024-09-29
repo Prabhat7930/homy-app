@@ -4,13 +4,13 @@ import 'package:homy/core/routes/routes.dart';
 import 'package:homy/screens/auth/enter_phone_screen.dart';
 import 'package:homy/screens/auth/otp_verification_screen.dart';
 import 'package:homy/screens/health-score/health_score_screen.dart';
-import 'package:homy/screens/home/home_screen.dart';
 import 'package:homy/screens/onboarding/onboarding_screen.dart';
 import 'package:homy/screens/onboarding/welcome_screen.dart';
 import 'package:homy/screens/splash/splash_screen.dart';
 import 'package:homy/screens/user-details/diet_plan_screen.dart';
 import 'package:homy/screens/user-details/location_details_screen.dart';
 import 'package:homy/screens/user-details/personal_details_screen.dart';
+import 'package:homy/utils/navbar_host_component.dart';
 import 'package:page_transition/page_transition.dart';
 
 class AppRoutes {
@@ -53,8 +53,8 @@ class AppRoutes {
       case Routes.healthScoreScreen:
         page = const HealthScoreScreen();
         break;
-      case Routes.homeScreen:
-        page = const HomeScreen();
+      case Routes.navHostScreen:
+        page = const NavBarHost();
         break;
       default:
         page = const Scaffold(

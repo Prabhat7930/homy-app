@@ -4,11 +4,11 @@ import 'package:homy/utils/text_component.dart';
 
 Widget screenButton(
     VoidCallback callback, String text, Color buttonColor, double width,
-    {double borderRadius = 24.0, bool isBorder = false}) {
+    {double borderRadius = 24.0, bool isBorder = false, double height = 50.0}) {
   return InkWell(
     onTap: () => callback(),
     child: Container(
-        height: 50.0,
+        height: height,
         width: width,
         alignment: Alignment.center,
         decoration: BoxDecoration(

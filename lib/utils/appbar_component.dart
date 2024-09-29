@@ -10,7 +10,7 @@ PreferredSizeWidget screenAppBar(BuildContext context,
         toolbarHeight: kToolbarHeight * 1.1,
         scrolledUnderElevation: 0.0,
         backgroundColor: appBarColor,
-        leadingWidth: 150.0,
+        leadingWidth: 120.0,
         leading: Image.asset(
           height: 50.0,
           width: 91.0,

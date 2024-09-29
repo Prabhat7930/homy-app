@@ -68,7 +68,7 @@ class _LocationDetailsScreenState extends State<LocationDetailsScreen> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.05, vertical: 20.0),
         child: locationPermission == null
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : locationPermission == false
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

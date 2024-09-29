@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 2), () {
       if (userDetails != null && userDetails) {
         Navigator.pushNamedAndRemoveUntil(
-            context, Routes.homeScreen, (routes) => false);
+            context, Routes.navHostScreen, (routes) => false);
       } else if (userLoggedIn != null && userLoggedIn) {
         Navigator.pushNamedAndRemoveUntil(
             context, Routes.personalDetailScreen, (routes) => false);
