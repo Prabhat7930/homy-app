@@ -53,7 +53,6 @@ class _CommunityScreenState extends State<CommunityScreen> {
                   itemCount: feedData.length,
                   itemBuilder: (context, index) {
                     final post = feedData[index];
-                    print(post);
                     return postWidget(post);
                   },
                 ),
