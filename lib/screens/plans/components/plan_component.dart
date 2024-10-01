@@ -6,15 +6,18 @@ import 'package:homy/utils/text_component.dart';
 Widget planComponentWidget({
   required double height,
   required double width,
+  required String planType,
   required List<Color> colors,
   required String title,
   required String description,
-  required VoidCallback onTap,
+  required Function(String) onPlanTap,
 }) {
   return SizedBox(
     width: width,
     child: InkWell(
-      onTap: onTap,
+      onTap: () => onPlanTap(planType),
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       child: Stack(
         children: [
           Container(

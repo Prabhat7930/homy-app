@@ -3,3 +3,9 @@ class OtpVerificationScreenArgs {
 
   OtpVerificationScreenArgs({required this.phoneNumber});
 }
+
+class BuyPlanScreenArgs {
+  final String planType;
+
+  BuyPlanScreenArgs({required this.planType});
+}

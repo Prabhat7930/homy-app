@@ -6,6 +6,7 @@ import 'package:homy/screens/auth/otp_verification_screen.dart';
 import 'package:homy/screens/health-score/health_score_screen.dart';
 import 'package:homy/screens/onboarding/onboarding_screen.dart';
 import 'package:homy/screens/onboarding/welcome_screen.dart';
+import 'package:homy/screens/plans/buy_plan_screen.dart';
 import 'package:homy/screens/splash/splash_screen.dart';
 import 'package:homy/screens/user-details/diet_plan_screen.dart';
 import 'package:homy/screens/user-details/location_details_screen.dart';
@@ -55,6 +56,10 @@ class AppRoutes {
         break;
       case Routes.navHostScreen:
         page = const NavBarHost();
+        break;
+      case Routes.buyPlanScreen:
+        final args = settings.arguments as BuyPlanScreenArgs;
+        page = BuyPlanScreen(planType: args.planType);
         break;
       default:
         page = const Scaffold(

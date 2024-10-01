@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:homy/core/theme/color_theme.dart';
+import 'package:homy/utils/text_component.dart';
 
 PreferredSizeWidget screenAppBar(BuildContext context,
-    {bool showProfile = false}) {
+    {bool showProfile = false, bool showPlans = false}) {
   final width = MediaQuery.of(context).size.width;
   return PreferredSize(
     preferredSize: Size(width, 50.0),
     child: AppBar(
         toolbarHeight: kToolbarHeight * 1.1,
         scrolledUnderElevation: 0.0,
-        backgroundColor: appBarColor,
-        leadingWidth: 120.0,
-        leading: Image.asset(
-          height: 50.0,
-          width: 91.0,
-          fit: BoxFit.scaleDown,
-          "assets/images/homy.png",
-          scale: 3.0,
-        ),
+        backgroundColor: showPlans == false ? appBarColor : primaryColor,
+        leadingWidth: showPlans == false ? 120.0 : 60.0,
+        leading: showPlans == false
+            ? Image.asset(
+                height: 50.0,
+                width: 91.0,
+                fit: BoxFit.scaleDown,
+                "assets/images/homy.png",
+                scale: 3.0,
+              )
+            : InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                child: const Icon(
+                  Icons.arrow_back_rounded,
+                  color: Colors.white,
+                  size: 28.0,
+                ),
+              ),
         actions: [
           showProfile == true
               ? const Padding(
@@ -28,7 +42,13 @@ PreferredSizeWidget screenAppBar(BuildContext context,
                     color: secondaryColor,
                   ),
                 )
-              : const SizedBox()
+              : (showPlans == false
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.only(right: 24.0),
+                      child: screenText(
+                          "Plans", 16.0, FontWeight.w600, textLightColor),
+                    ))
         ],
         bottom: PreferredSize(
           preferredSize: Size(width * 0.8, 4.0),

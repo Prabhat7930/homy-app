@@ -9,4 +9,5 @@ class Routes {
   static const dietPlanScreen = "/diet-plan";
   static const healthScoreScreen = "/health-score";
   static const navHostScreen = "/nav-host";
+  static const buyPlanScreen = "/buy-plan";
 }

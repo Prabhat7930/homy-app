@@ -130,6 +130,8 @@ class _EnterPhoneScreenState extends State<EnterPhoneScreen> {
                             ),
                           );
                         },
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         child: Container(
                           height: 50.0,
                           decoration: BoxDecoration(

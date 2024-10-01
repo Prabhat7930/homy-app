@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homy/core/routes/route_arguments.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/plans/components/plan_component.dart';
 import 'package:homy/utils/appbar_component.dart';
@@ -12,6 +14,11 @@ class PlansScreen extends StatefulWidget {
 }
 
 class _PlansScreenState extends State<PlansScreen> {
+  void onPlanTap(String planType) {
+    Navigator.pushNamed(context, Routes.buyPlanScreen,
+        arguments: BuyPlanScreenArgs(planType: planType));
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -31,26 +38,29 @@ class _PlansScreenState extends State<PlansScreen> {
               planComponentWidget(
                   height: height * 0.2,
                   width: width,
+                  planType: "basic",
                   colors: const [Color(0xFFFF4B00), Color(0xFFFF4B00)],
                   title: "Homy Comfort",
                   description: textAssets[1],
-                  onTap: () {}),
+                  onPlanTap: onPlanTap),
               const SizedBox(height: 32.0),
               planComponentWidget(
                   height: height * 0.2,
                   width: width,
+                  planType: "standard",
                   colors: const [Color(0xFF423EFF), Color(0xFFFF4B00)],
                   title: "Homy Fusion",
                   description: textAssets[1],
-                  onTap: () {}),
+                  onPlanTap: onPlanTap),
               const SizedBox(height: 32.0),
               planComponentWidget(
                   height: height * 0.2,
                   width: width,
+                  planType: "pro",
                   colors: const [Color(0xFF1ED500), Color(0xFF423EFF)],
                   title: "Homy Wellness",
                   description: textAssets[1],
-                  onTap: () {}),
+                  onPlanTap: onPlanTap),
             ],
           ),
         ));

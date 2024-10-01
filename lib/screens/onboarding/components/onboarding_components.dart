@@ -6,6 +6,8 @@ Widget onBoardingButton(
     VoidCallback callback, String text, Color buttonColor, double width) {
   return InkWell(
     onTap: () => callback(),
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
     child: Container(
         height: 45.0,
         width: width * 0.3,

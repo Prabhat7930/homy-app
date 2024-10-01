@@ -7,6 +7,8 @@ Widget screenButton(
     {double borderRadius = 24.0, bool isBorder = false, double height = 50.0}) {
   return InkWell(
     onTap: () => callback(),
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
     child: Container(
         height: height,
         width: width,
