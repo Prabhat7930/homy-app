@@ -3,10 +3,15 @@ import 'package:homy/core/routes/route_arguments.dart';
 import 'package:homy/core/routes/routes.dart';
 import 'package:homy/screens/auth/enter_phone_screen.dart';
 import 'package:homy/screens/auth/otp_verification_screen.dart';
+import 'package:homy/screens/community/community_screen.dart';
 import 'package:homy/screens/health-score/health_score_screen.dart';
+import 'package:homy/screens/meal-planner/meal_planner_screen.dart';
+import 'package:homy/screens/notifications/notifications_screen.dart';
 import 'package:homy/screens/onboarding/onboarding_screen.dart';
 import 'package:homy/screens/onboarding/welcome_screen.dart';
-import 'package:homy/screens/plans/buy_plan_screen.dart';
+import 'package:homy/screens/plans/plan_customization_screen.dart';
+import 'package:homy/screens/plans/plan_detail_screen.dart';
+import 'package:homy/screens/plans/plans_screen.dart';
 import 'package:homy/screens/splash/splash_screen.dart';
 import 'package:homy/screens/user-details/diet_plan_screen.dart';
 import 'package:homy/screens/user-details/location_details_screen.dart';
@@ -55,11 +60,32 @@ class AppRoutes {
         page = const HealthScoreScreen();
         break;
       case Routes.navHostScreen:
-        page = const NavBarHost();
+        final args = settings.arguments as NavHostScreenArgs;
+        page = NavBarHost(currentIndex: args.currentIndex);
         break;
-      case Routes.buyPlanScreen:
-        final args = settings.arguments as BuyPlanScreenArgs;
-        page = BuyPlanScreen(planType: args.planType);
+      case Routes.plansScreen:
+        page = const PlansScreen();
+        break;
+      case Routes.notificationsScreen:
+        page = const NotificationsScreen();
+        break;
+      case Routes.communityScreen:
+        page = const CommunityScreen();
+        break;
+      case Routes.planDetailsScreen:
+        final args = settings.arguments as PlanDetailsScreenArgs;
+        page = PlanDetailsScreen(planType: args.planType);
+        break;
+      case Routes.planCustomizationScreen:
+        final args = settings.arguments as PlanCustomizationScreenArgs;
+        page = PlanCustomizationScreen(
+          planType: args.planType,
+          morningPrice: args.morningPrice,
+          eveningPrice: args.eveningPrice,
+        );
+        break;
+      case Routes.mealPlannerScreen:
+        page = const MealPlannerScreen();
         break;
       default:
         page = const Scaffold(

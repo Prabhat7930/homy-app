@@ -4,11 +4,11 @@ import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/utils/text_component.dart';
 
 Widget dropdownInput(List<String> items, String? selectedValue,
-    ValueChanged<String?> onChanged) {
+    ValueChanged<String?> onChanged, String hintText) {
   return DropdownButtonHideUnderline(
     child: DropdownButton2<String>(
       isExpanded: true,
-      hint: screenText("Gender", 14.0, FontWeight.w400, Colors.grey),
+      hint: screenText(hintText, 14.0, FontWeight.w400, Colors.grey),
       items: items
           .map((String item) => DropdownMenuItem<String>(
               value: item,

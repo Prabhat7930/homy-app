@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homy/core/theme/color_theme.dart';
-import 'package:homy/screens/user-details/components/grid_view_component.dart';
+import 'package:homy/utils/grid_view_component.dart';
 import 'package:homy/utils/text_component.dart';
 import 'package:homy/utils/textfield_component.dart';
 
@@ -96,6 +96,7 @@ class _DietPageTwoAndThreeState extends State<DietPageTwoAndThree> {
             items: items,
             selectedItems: selectedItems,
             toggleSelectedItem: toggleSelectedItem,
+            customPlan: false,
           ),
           const SizedBox(height: 40.0),
           screenText(userInputText, 14.0, FontWeight.w400, textDarkColor,

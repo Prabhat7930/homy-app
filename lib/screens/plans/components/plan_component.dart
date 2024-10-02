@@ -69,7 +69,8 @@ Widget planComponentWidget({
                     ),
                   ),
                 ),
-                arrowForward(height: 30.0, width: 30.0, iconSize: 28.0)
+                iconContainer(Icons.keyboard_arrow_right_rounded,
+                    height: 30.0, width: 30.0, iconSize: 28.0)
               ],
             ),
           )

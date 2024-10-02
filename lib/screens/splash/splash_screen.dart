@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:homy/core/routes/route_arguments.dart';
 import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 2), () {
       if (userDetails != null && userDetails) {
         Navigator.pushNamedAndRemoveUntil(
-            context, Routes.navHostScreen, (routes) => false);
+            context,
+            Routes.navHostScreen,
+            arguments: NavHostScreenArgs(currentIndex: 0),
+            (routes) => false);
       } else if (userLoggedIn != null && userLoggedIn) {
         Navigator.pushNamedAndRemoveUntil(
             context, Routes.personalDetailScreen, (routes) => false);

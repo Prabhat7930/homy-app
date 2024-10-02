@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:homy/core/routes/route_arguments.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
-import 'package:homy/screens/plans/components/buy_plan_components.dart';
+import 'package:homy/screens/plans/components/plan_details_components.dart';
 import 'package:homy/utils/appbar_component.dart';
 import 'package:homy/utils/button_component.dart';
 import 'package:homy/utils/text_component.dart';
 
-class BuyPlanScreen extends StatelessWidget {
+class PlanDetailsScreen extends StatelessWidget {
   final String planType;
-  const BuyPlanScreen({super.key, required this.planType});
+  const PlanDetailsScreen({super.key, required this.planType});
 
   Map<String, dynamic> _getPlanDetails() {
     switch (planType.toLowerCase()) {
@@ -96,17 +98,44 @@ class BuyPlanScreen extends StatelessWidget {
     }
   }
 
-  void onProceedButtonTap() {}
-
   @override
   Widget build(BuildContext context) {
     final planDetails = _getPlanDetails();
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
+    void onProceedButtonTap() {
+      int morningPrice = 0;
+      int eveningPrice = 0;
+
+      switch (planType) {
+        case "basic":
+          morningPrice = 8000;
+          eveningPrice = 6000;
+          break;
+        case "standard":
+          morningPrice = 8000;
+          eveningPrice = 6000;
+          break;
+        case "pro":
+          morningPrice = 8000;
+          eveningPrice = 6000;
+          break;
+        default:
+      }
+
+      Navigator.pushNamed(context, Routes.planCustomizationScreen,
+          arguments: PlanCustomizationScreenArgs(
+            planType: planType,
+            morningPrice: morningPrice,
+            eveningPrice: eveningPrice,
+          ));
+    }
+
     return Scaffold(
       backgroundColor: scaffoldColor,
-      appBar: screenAppBar(context, showProfile: false, showPlans: true),
+      appBar: screenAppBar(context,
+          showProfile: false, showText: true, text: "Plans"),
       body: Padding(
         padding: const EdgeInsets.only(
             top: 40.0, bottom: 20.0, left: 20.0, right: 20.0),

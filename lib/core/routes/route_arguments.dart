@@ -4,8 +4,25 @@ class OtpVerificationScreenArgs {
   OtpVerificationScreenArgs({required this.phoneNumber});
 }
 
-class BuyPlanScreenArgs {
+class NavHostScreenArgs {
+  int currentIndex;
+  NavHostScreenArgs({required this.currentIndex});
+}
+
+class PlanDetailsScreenArgs {
   final String planType;
 
-  BuyPlanScreenArgs({required this.planType});
+  PlanDetailsScreenArgs({required this.planType});
+}
+
+class PlanCustomizationScreenArgs {
+  final String planType;
+  final int morningPrice;
+  final int eveningPrice;
+
+  PlanCustomizationScreenArgs({
+    required this.planType,
+    required this.morningPrice,
+    required this.eveningPrice,
+  });
 }

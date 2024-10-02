@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:homy/core/routes/route_arguments.dart';
 import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/health-score/components/health_plan_component.dart';
@@ -22,7 +23,10 @@ class _HealthScoreScreenState extends State<HealthScoreScreen>
 
   void onHomeButtonTap() {
     Navigator.pushNamedAndRemoveUntil(
-        context, Routes.navHostScreen, (route) => false);
+        context,
+        Routes.navHostScreen,
+        arguments: NavHostScreenArgs(currentIndex: 0),
+        (route) => false);
   }
 
   @override

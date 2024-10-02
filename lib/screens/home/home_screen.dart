@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/home/components/location_component.dart';
 import 'package:homy/screens/home/components/stack_text_component.dart';
@@ -17,6 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   CarouselSliderController bannerController = CarouselSliderController();
 
   int bannerIndex = 0;
+
+  void onMealPlannerButton() {
+    Navigator.pushNamed(context, Routes.mealPlannerScreen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: width,
                         containerText: textAssets[1],
                         buttonText: "Meal Planner",
-                        onTap: () {}),
+                        onTap: onMealPlannerButton),
                   )
                 ],
               ),

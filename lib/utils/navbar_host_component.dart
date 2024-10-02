@@ -7,14 +7,15 @@ import 'package:homy/screens/notifications/notifications_screen.dart';
 import 'package:homy/screens/plans/plans_screen.dart';
 
 class NavBarHost extends StatefulWidget {
-  const NavBarHost({super.key});
+  final int currentIndex;
+  const NavBarHost({super.key, required this.currentIndex});
 
   @override
   State<NavBarHost> createState() => _NavBarHostState();
 }
 
 class _NavBarHostState extends State<NavBarHost> {
-  int currentIndex = 0;
+  late int currentIndex;
 
   List<Widget> body = const [
     HomeScreen(),
@@ -22,6 +23,12 @@ class _NavBarHostState extends State<NavBarHost> {
     NotificationsScreen(),
     CommunityScreen()
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = widget.currentIndex;
+  }
 
   @override
   Widget build(BuildContext context) {

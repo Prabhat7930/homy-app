@@ -95,8 +95,8 @@ class _DietPageOneState extends State<DietPageOne> {
               SizedBox(
                   height: 58.0,
                   width: 160.0,
-                  child: dropdownInput(
-                      genderItems, widget.selectedGender, onGenderChange)),
+                  child: dropdownInput(genderItems, widget.selectedGender,
+                      onGenderChange, "Gender")),
             ],
           ),
           const SizedBox(height: 24.0),

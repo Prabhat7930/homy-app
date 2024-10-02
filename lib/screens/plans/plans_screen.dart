@@ -15,8 +15,8 @@ class PlansScreen extends StatefulWidget {
 
 class _PlansScreenState extends State<PlansScreen> {
   void onPlanTap(String planType) {
-    Navigator.pushNamed(context, Routes.buyPlanScreen,
-        arguments: BuyPlanScreenArgs(planType: planType));
+    Navigator.pushNamed(context, Routes.planDetailsScreen,
+        arguments: PlanDetailsScreenArgs(planType: planType));
   }
 
   @override

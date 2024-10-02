@@ -48,6 +48,7 @@ class _EnterPhoneScreenState extends State<EnterPhoneScreen> {
             width: width,
             "assets/images/salad2.png",
             fit: BoxFit.cover,
+            scale: 2.0,
           ),
 
           // black translucent cover

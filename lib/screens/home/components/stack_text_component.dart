@@ -42,6 +42,8 @@ class StackText extends StatelessWidget {
             top: height * 0.6,
             child: InkWell(
               onTap: onTap,
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: scaffoldColor, width: 6.0),
@@ -57,7 +59,7 @@ class StackText extends StatelessWidget {
                         buttonText, 14.0, FontWeight.w400, textLightColor,
                         align: TextAlign.start),
                     const SizedBox(width: 4.0),
-                    arrowForward()
+                    iconContainer(Icons.keyboard_arrow_right_rounded)
                   ],
                 ),
               ),
