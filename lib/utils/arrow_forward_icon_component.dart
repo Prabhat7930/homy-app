@@ -7,6 +7,7 @@ Widget iconContainer(
   double width = 16.0,
   double iconSize = 14.0,
   Color containerColor = Colors.white,
+  Color iconColor = secondaryColor,
 }) {
   return Container(
     height: height,
@@ -19,7 +20,7 @@ Widget iconContainer(
     child: Icon(
       containerIcon,
       size: iconSize,
-      color: secondaryColor,
+      color: iconColor,
     ),
   );
 }

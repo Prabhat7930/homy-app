@@ -51,39 +51,42 @@ class _PlanCustomizationPageOneState extends State<PlanCustomizationPageOne> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        screenText(
-            "Total number of people", 14.0, FontWeight.w400, textDarkColor),
-        const SizedBox(height: 12.0),
-        SizedBox(
-            width: 100.0,
-            child: screenInputField(
-                peopleController, "4", false, TextInputType.number,
-                limitDigit: 1)),
-        const SizedBox(height: 16.0),
-        screenText(textAssets[0], 14.0, FontWeight.w400, textDarkColor,
-            align: TextAlign.start),
-        const SizedBox(height: 16.0),
-        DynamicGridView(
-          items: morningItems,
-          selectedItems: selectedMorningItems,
-          toggleSelectedItem: toggleSelectedItem,
-          customPlan: true,
-        ),
-        const SizedBox(height: 24.0),
-        screenText(textAssets[1], 14.0, FontWeight.w400, textDarkColor,
-            align: TextAlign.start),
-        const SizedBox(height: 16.0),
-        DynamicGridView(
-          items: eveningItems,
-          selectedItems: selectedEveningItems,
-          toggleSelectedItem: toggleSelectedItem,
-          customPlan: true,
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          screenText(
+              "Total number of people", 14.0, FontWeight.w400, textDarkColor),
+          const SizedBox(height: 12.0),
+          SizedBox(
+              width: 100.0,
+              child: screenInputField(
+                  peopleController, "4", false, TextInputType.number,
+                  limitDigit: 1)),
+          const SizedBox(height: 16.0),
+          screenText(textAssets[0], 14.0, FontWeight.w400, textDarkColor,
+              align: TextAlign.start),
+          const SizedBox(height: 16.0),
+          DynamicGridView(
+            items: morningItems,
+            selectedItems: selectedMorningItems,
+            toggleSelectedItem: toggleSelectedItem,
+            customPlan: true,
+          ),
+          const SizedBox(height: 24.0),
+          screenText(textAssets[1], 14.0, FontWeight.w400, textDarkColor,
+              align: TextAlign.start),
+          const SizedBox(height: 16.0),
+          DynamicGridView(
+            items: eveningItems,
+            selectedItems: selectedEveningItems,
+            toggleSelectedItem: toggleSelectedItem,
+            customPlan: true,
+          ),
+          const SizedBox(height: 20.0),
+        ],
+      ),
     );
   }
 }

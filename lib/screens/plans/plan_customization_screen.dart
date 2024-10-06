@@ -117,6 +117,7 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
         return true;
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: scaffoldColor,
         appBar: screenAppBar(context,
             showProfile: false, showText: true, text: "Customize"),

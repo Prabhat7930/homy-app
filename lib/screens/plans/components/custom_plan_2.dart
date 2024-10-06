@@ -48,68 +48,71 @@ class _PlanCustomizationPageTwoState extends State<PlanCustomizationPageTwo> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        screenText("Select a day for chef's day off", 14.0, FontWeight.w400,
-            textDarkColor),
-        const SizedBox(height: 12.0),
-        SizedBox(
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          screenText("Select a day for chef's day off", 14.0, FontWeight.w400,
+              textDarkColor),
+          const SizedBox(height: 12.0),
+          SizedBox(
+              height: 58.0,
+              width: 160.0,
+              child: dropdownInput(
+                  dayItems, widget.selectedDay, onDayChange, "Sunday")),
+          const SizedBox(height: 16.0),
+          screenText("Select start date of the plan", 14.0, FontWeight.w400,
+              textDarkColor,
+              align: TextAlign.start),
+          noteText(),
+          const SizedBox(height: 16.0),
+          SizedBox(
             height: 58.0,
             width: 160.0,
-            child: dropdownInput(
-                dayItems, widget.selectedDay, onDayChange, "Sunday")),
-        const SizedBox(height: 16.0),
-        screenText("Select start date of the plan", 14.0, FontWeight.w400,
-            textDarkColor,
-            align: TextAlign.start),
-        noteText(),
-        const SizedBox(height: 16.0),
-        SizedBox(
-          height: 58.0,
-          width: 160.0,
-          child: CalendarOption(
-              icon: Icons.calendar_month, onDateSelected: onDateSelected),
-        ),
-        const SizedBox(height: 24.0),
-        screenText("Coupon code", 14.0, FontWeight.w400, textDarkColor,
-            align: TextAlign.start),
-        const SizedBox(height: 12.0),
-        Container(
-          width: 180.0,
-          height: 58.0,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              color: textInputBgColor),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 120.0,
-                child: screenInputField(
-                    couponController, "Enter code", true, TextInputType.text,
-                    limitText: 10),
-              ),
-              InkWell(
-                onTap: () {},
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                child: Container(
-                  width: 60.0,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: textInputBgColor),
-                  child: screenText(
-                      "Apply", 14.0, FontWeight.w500, secondaryColor),
-                ),
-              )
-            ],
+            child: CalendarOption(
+                icon: Icons.calendar_month, onDateSelected: onDateSelected),
           ),
-        )
-      ],
+          const SizedBox(height: 24.0),
+          screenText("Coupon code", 14.0, FontWeight.w400, textDarkColor,
+              align: TextAlign.start),
+          const SizedBox(height: 12.0),
+          Container(
+            width: 180.0,
+            height: 58.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                color: textInputBgColor),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 120.0,
+                  child: screenInputField(
+                      couponController, "Enter code", true, TextInputType.text,
+                      limitText: 10),
+                ),
+                InkWell(
+                  onTap: () {},
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  child: Container(
+                    width: 60.0,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: textInputBgColor),
+                    child: screenText(
+                        "Apply", 14.0, FontWeight.w500, secondaryColor),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 20.0),
+        ],
+      ),
     );
   }
 
