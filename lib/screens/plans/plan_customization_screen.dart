@@ -57,15 +57,7 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
   }
 
   String? selectedDay = "Sunday";
-  List<String> dayItems = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
+  List<String> dayItems = ["Saturday", "Sunday", "Monday"];
 
   void onDayChange(String? day) {
     setState(() {

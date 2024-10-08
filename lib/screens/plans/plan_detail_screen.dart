@@ -35,7 +35,7 @@ class PlanDetailsScreen extends StatelessWidget {
             {
               'title': 'Evening Visit',
               'subtitle': '(3pm - 8pm)',
-              'price': '₹6,000'
+              'price': '₹7,000'
             },
           ],
         };
@@ -55,12 +55,12 @@ class PlanDetailsScreen extends StatelessWidget {
             {
               'title': 'Morning Visit',
               'subtitle': '(8am - 1pm)',
-              'price': '₹21,000'
+              'price': '₹12,000'
             },
             {
               'title': 'Evening Visit',
               'subtitle': '(3pm - 8pm)',
-              'price': '₹18,000'
+              'price': '₹10,000'
             },
           ],
         };

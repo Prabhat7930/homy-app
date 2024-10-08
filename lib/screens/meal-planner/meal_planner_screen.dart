@@ -4,6 +4,7 @@ import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/meal-planner/components/buy_plan_page.dart';
 import 'package:homy/screens/meal-planner/components/meal_planner_page.dart';
 import 'package:homy/utils/appbar_component.dart';
+import 'package:homy/utils/floating_action_component.dart';
 import 'package:homy/utils/text_component.dart';
 
 class MealPlannerScreen extends StatefulWidget {
@@ -53,31 +54,35 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                 onTapAddButton: onTapAddButton,
               ),
       ),
-      floatingActionButton: InkWell(
-        onTap: onTapMyMealButton,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        child: Container(
-          height: height * 0.12,
-          width: width * 0.18,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32.0), color: secondaryColor),
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.rice_bowl_rounded,
-                color: Colors.white,
-                size: 24.0,
+      floatingActionButton: planBought == true
+          ? InkWell(
+              onTap: onTapMyMealButton,
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              child: Container(
+                height: height * 0.12,
+                width: width * 0.18,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32.0),
+                    color: secondaryColor),
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.rice_bowl_rounded,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                    screenText(
+                        "My\nMeals", 14.0, FontWeight.w400, textLightColor,
+                        wordHeight: true)
+                  ],
+                ),
               ),
-              screenText("My\nMeals", 14.0, FontWeight.w400, textLightColor,
-                  wordHeight: true)
-            ],
-          ),
-        ),
-      ),
+            )
+          : screenFloatingButton(),
     );
   }
 }
