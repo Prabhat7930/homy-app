@@ -4,7 +4,10 @@ import 'package:homy/utils/text_component.dart';
 
 Widget screenIconButton(VoidCallback callback, String text, Color buttonColor,
     double width, Widget buttonIcon,
-    {double borderRadius = 24.0, bool isBorder = false, double height = 50.0}) {
+    {double borderRadius = 24.0,
+    bool isBorder = false,
+    double height = 50.0,
+    Color textColor = textLightColor}) {
   return InkWell(
     onTap: () => callback(),
     splashColor: Colors.transparent,
@@ -22,7 +25,7 @@ Widget screenIconButton(VoidCallback callback, String text, Color buttonColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            screenText(text, 14.0, FontWeight.w400, textLightColor),
+            screenText(text, 14.0, FontWeight.w400, textColor),
             const SizedBox(width: 4.0),
             buttonIcon
           ],

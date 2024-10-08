@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/utils/arrow_forward_icon_component.dart';
+import 'package:homy/utils/icon_button_component.dart';
 import 'package:homy/utils/text_component.dart';
 
-class StackText extends StatelessWidget {
+class MealPlannerWidget extends StatelessWidget {
   final double height;
   final double width;
   final String containerText;
   final String buttonText;
   final VoidCallback onTap;
 
-  const StackText({
+  const MealPlannerWidget({
     super.key,
     required this.height,
     required this.width,
@@ -21,50 +22,24 @@ class StackText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: height,
-      child: Stack(
-        alignment: Alignment.topCenter,
+      width: width,
+      decoration: BoxDecoration(
+        color: primaryColor,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            height: height * 0.7,
-            decoration: BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
-            child: screenText(
-                containerText, 14.0, FontWeight.w400, textLightColor,
-                align: TextAlign.start),
-          ),
-          Positioned(
-            top: height * 0.6,
-            child: InkWell(
-              onTap: onTap,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: scaffoldColor, width: 6.0),
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                padding: const EdgeInsets.symmetric(
-                    vertical: 12.0, horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    screenText(
-                        buttonText, 14.0, FontWeight.w400, textLightColor,
-                        align: TextAlign.start),
-                    const SizedBox(width: 4.0),
-                    iconContainer(Icons.keyboard_arrow_right_rounded)
-                  ],
-                ),
-              ),
-            ),
-          ),
+          screenText(containerText, 14.0, FontWeight.w400, textLightColor,
+              align: TextAlign.start),
+          const SizedBox(height: 8.0),
+          screenIconButton(onTap, "Meal Planner", secondaryColor, width * 0.35,
+              iconContainer(Icons.keyboard_arrow_right_rounded),
+              borderRadius: 12.0, height: 40.0, textColor: Colors.white)
         ],
       ),
     );

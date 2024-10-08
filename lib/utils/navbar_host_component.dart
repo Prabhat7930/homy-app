@@ -5,6 +5,7 @@ import 'package:homy/screens/community/community_screen.dart';
 import 'package:homy/screens/home/home_screen.dart';
 import 'package:homy/screens/notifications/notifications_screen.dart';
 import 'package:homy/screens/plans/plans_screen.dart';
+import 'package:homy/utils/floating_action_component.dart';
 
 class NavBarHost extends StatefulWidget {
   final int currentIndex;
@@ -73,6 +74,7 @@ class _NavBarHostState extends State<NavBarHost> {
           ),
         ],
       ),
+      floatingActionButton: screenFloatingButton(),
     );
   }
 }

@@ -27,49 +27,58 @@ class _PlansScreenState extends State<PlansScreen> {
         backgroundColor: scaffoldColor,
         appBar: screenAppBar(context, showProfile: true),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              screenText(textAssets[0], 22.0, FontWeight.w600, textDarkColor,
-                  align: TextAlign.start),
-              const SizedBox(height: 24.0),
-              planComponentWidget(
-                  height: height * 0.2,
-                  width: width,
-                  planType: "basic",
-                  colors: const [Color(0xFFFF4B00), Color(0xFFFF4B00)],
-                  title: "Homy Comfort",
-                  description: textAssets[1],
-                  onPlanTap: onPlanTap),
-              const SizedBox(height: 32.0),
-              planComponentWidget(
-                  height: height * 0.2,
-                  width: width,
-                  planType: "standard",
-                  colors: const [Color(0xFF423EFF), Color(0xFFFF4B00)],
-                  title: "Homy Fusion",
-                  description: textAssets[1],
-                  onPlanTap: onPlanTap),
-              const SizedBox(height: 32.0),
-              planComponentWidget(
-                  height: height * 0.2,
-                  width: width,
-                  planType: "pro",
-                  colors: const [Color(0xFF1ED500), Color(0xFF423EFF)],
-                  title: "Homy Wellness",
-                  description: textAssets[1],
-                  onPlanTap: onPlanTap),
-            ],
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                screenText(textAssets[0], 22.0, FontWeight.w600, textDarkColor,
+                    align: TextAlign.start),
+                const SizedBox(height: 24.0),
+                planComponentWidget(
+                    height: height * 0.5,
+                    width: width,
+                    imagePath: "assets/images/comfort2.png",
+                    planType: "basic",
+                    title: "Homy Comfort",
+                    morningPrice: "8000",
+                    eveningPrice: "7000",
+                    description: textAssets[1],
+                    onPlanTap: onPlanTap),
+                const SizedBox(height: 32.0),
+                planComponentWidget(
+                    height: height * 0.5,
+                    width: width,
+                    imagePath: "assets/images/fusion.png",
+                    planType: "standard",
+                    title: "Homy Fusion",
+                    morningPrice: "12000",
+                    eveningPrice: "10000",
+                    description: textAssets[2],
+                    onPlanTap: onPlanTap),
+                const SizedBox(height: 32.0),
+                planComponentWidget(
+                    height: height * 0.5,
+                    width: width,
+                    imagePath: "assets/images/wellness.png",
+                    planType: "pro",
+                    title: "Homy Wellness",
+                    morningPrice: "21000",
+                    eveningPrice: "18000",
+                    description: textAssets[3],
+                    onPlanTap: onPlanTap),
+                const SizedBox(height: 20.0)
+              ],
+            ),
           ),
         ));
   }
 
   final List<String> textAssets = [
-    "Choose Your Perfect Culinary\nExperience",
-    "Daily meals made easy with a North\nIndian touch. Quick, wholesome\nmeals for your family in just 1.5 hours.",
-    "Service by Expert chefs, from North\nIndian to Continental, enjoy a\nvariety of cuisines with party\noptions included.",
-    "Tailored to your dietary needs, this\npremium plan offers a holistic\nculinary experience with\npersonalized meals and exclusive\nevents."
+    "Pick your ideal dining Adventure!",
+    "Daily meals made easy with a North\nIndian touch. Quick, wholesome meals for\nyour family in just 1.5 hours.",
+    "Service by Expert chefs, from North\nIndian to Continental, enjoy a variety of\ncuisines with party options included.",
+    "Tailored to your dietary needs, this\npremium plan offers a holistic culinary\nexperience with personalized meals and\nexclusive events."
   ];
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:homy/core/theme/color_theme.dart';
-import 'package:homy/screens/user-details/components/dropdown_component.dart';
+import 'package:homy/utils/dropdown_component.dart';
 import 'package:homy/utils/text_component.dart';
 import 'package:homy/utils/textfield_component.dart';
 import 'package:radio_group_v2/utils/radio_group_decoration.dart';

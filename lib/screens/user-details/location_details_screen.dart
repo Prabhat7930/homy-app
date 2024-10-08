@@ -63,6 +63,7 @@ class _LocationDetailsScreenState extends State<LocationDetailsScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: scaffoldColor,
       appBar: screenAppBar(context),
       body: Padding(
@@ -73,36 +74,41 @@ class _LocationDetailsScreenState extends State<LocationDetailsScreen> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          screenText("Location Details", 22.0, FontWeight.w600,
-                              textDarkColor),
-                          const SizedBox(height: 32.0),
-                          screenInputField(pincodeController, 'Pincode', false,
-                              TextInputType.number,
-                              limitDigit: 6),
-                          const SizedBox(height: 20.0),
-                          screenInputField(
-                              cityController, 'City', true, TextInputType.text,
-                              limitText: 20),
-                          const SizedBox(height: 20.0),
-                          screenInputField(areaController, 'Area/Sector', true,
-                              TextInputType.text,
-                              limitText: 20),
-                          const SizedBox(height: 20.0),
-                          screenInputField(localityController, 'Locality', true,
-                              TextInputType.text,
-                              limitText: 30),
-                          const SizedBox(height: 20.0),
-                          screenInputField(
-                              flatnoController,
-                              'House no./flat/floor/building',
-                              true,
-                              TextInputType.text,
-                              limitText: 20),
-                        ],
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              screenText("Location Details", 22.0,
+                                  FontWeight.w600, textDarkColor),
+                              const SizedBox(height: 32.0),
+                              screenInputField(pincodeController, 'Pincode',
+                                  false, TextInputType.number,
+                                  limitDigit: 6),
+                              const SizedBox(height: 20.0),
+                              screenInputField(cityController, 'City', true,
+                                  TextInputType.text,
+                                  limitText: 20),
+                              const SizedBox(height: 20.0),
+                              screenInputField(areaController, 'Area/Sector',
+                                  true, TextInputType.text,
+                                  limitText: 20),
+                              const SizedBox(height: 20.0),
+                              screenInputField(localityController, 'Locality',
+                                  true, TextInputType.text,
+                                  limitText: 30),
+                              const SizedBox(height: 20.0),
+                              screenInputField(
+                                  flatnoController,
+                                  'House no./flat/floor/building',
+                                  true,
+                                  TextInputType.text,
+                                  limitText: 20),
+                              const SizedBox(height: 20.0)
+                            ],
+                          ),
+                        ),
                       ),
                       screenButton(onNextButtonTap, "Next", secondaryColor,
                           width * 0.85),

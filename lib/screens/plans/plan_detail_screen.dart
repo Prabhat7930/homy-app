@@ -5,6 +5,7 @@ import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/plans/components/plan_details_components.dart';
 import 'package:homy/utils/appbar_component.dart';
 import 'package:homy/utils/button_component.dart';
+import 'package:homy/utils/floating_action_component.dart';
 import 'package:homy/utils/text_component.dart';
 
 class PlanDetailsScreen extends StatelessWidget {
@@ -103,6 +104,18 @@ class PlanDetailsScreen extends StatelessWidget {
     final planDetails = _getPlanDetails();
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    String planName = "";
+    switch (planType) {
+      case "basic":
+        planName = "Homy Comfort";
+        break;
+      case "standard":
+        planName = "Homy Standard";
+        break;
+      case "pro":
+        planName = "Homy Wellness";
+        break;
+    }
 
     void onProceedButtonTap() {
       int morningPrice = 0;
@@ -135,7 +148,7 @@ class PlanDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: scaffoldColor,
       appBar: screenAppBar(context,
-          showProfile: false, showText: true, text: "Plans"),
+          showProfile: false, showText: true, text: planName),
       body: Padding(
         padding: const EdgeInsets.only(
             top: 40.0, bottom: 20.0, left: 20.0, right: 20.0),
@@ -197,6 +210,7 @@ class PlanDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: screenFloatingButton(),
     );
   }
 }
