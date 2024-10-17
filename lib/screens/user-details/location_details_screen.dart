@@ -23,12 +23,6 @@ class _LocationDetailsScreenState extends State<LocationDetailsScreen> {
   TextEditingController localityController = TextEditingController();
   TextEditingController flatnoController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    handleLocationPermission();
-  }
-
   void handleLocationPermission() async {
     var status = await Permission.locationWhenInUse.request();
 
@@ -56,6 +50,22 @@ class _LocationDetailsScreenState extends State<LocationDetailsScreen> {
       Navigator.pushNamedAndRemoveUntil(
           context, Routes.personalDetailScreen, (route) => false);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    handleLocationPermission();
+  }
+
+  @override
+  void dispose() {
+    pincodeController.dispose();
+    cityController.dispose();
+    areaController.dispose();
+    localityController.dispose();
+    flatnoController.dispose();
+    super.dispose();
   }
 
   @override

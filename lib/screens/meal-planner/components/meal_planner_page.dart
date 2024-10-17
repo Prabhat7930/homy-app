@@ -6,6 +6,7 @@ import 'package:homy/utils/icon_button_component.dart';
 import 'package:homy/utils/text_component.dart';
 import 'package:homy/utils/textfield_component.dart';
 import 'package:horizontal_week_calendar/horizontal_week_calendar.dart';
+import 'package:intl/intl.dart';
 
 class MealPlannerPage extends StatefulWidget {
   final double width;
@@ -38,6 +39,14 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
 
   DateTime selectedDate = DateTime.now();
 
+  DateTime calculateMinDate() {
+    return DateTime(selectedDate.year, selectedDate.month - 1, 1);
+  }
+
+  DateTime calculateMaxDate() {
+    return DateTime(selectedDate.year, selectedDate.month + 2, 0);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -50,6 +59,7 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
 
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('MMMM d').format(selectedDate);
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +68,7 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              screenText("October 5", 22.0, FontWeight.w600, textDarkColor),
+              screenText(formattedDate, 22.0, FontWeight.w600, textDarkColor),
               iconContainer(
                 Icons.calendar_today_rounded,
                 containerColor: secondaryColor,
@@ -71,9 +81,9 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
           ),
           const SizedBox(height: 32.0),
           HorizontalWeekCalendar(
-            minDate: DateTime(2023, 12, 31),
-            maxDate: DateTime(2024, 1, 31),
-            initialDate: DateTime(2024, 1, 15),
+            minDate: calculateMinDate(),
+            maxDate: calculateMaxDate(),
+            initialDate: selectedDate,
             onDateChange: (date) {
               setState(() {
                 selectedDate = date;

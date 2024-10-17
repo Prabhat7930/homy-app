@@ -140,6 +140,18 @@ class _DietPlanScreenState extends State<DietPlanScreen> {
   }
 
   @override
+  void dispose() {
+    ageController.dispose();
+    weightController.dispose();
+    heightController.dispose();
+    mealController.dispose();
+    dietPrefsController.dispose();
+    fitnessGoalsController.dispose();
+    healthCondController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return WillPopScope(

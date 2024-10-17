@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/meal-planner/components/buy_plan_page.dart';
 import 'package:homy/screens/meal-planner/components/meal_planner_page.dart';
@@ -28,9 +28,17 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
 
   void onTapAddButton() {}
 
-  void onTapMyMealButton() {}
+  void onTapMyMealButton() {
+    Navigator.pushNamed(context, Routes.myMealsScreen);
+  }
 
   bool planBought = true;
+
+  @override
+  void dispose() {
+    preferencesController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +83,10 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                       color: Colors.white,
                       size: 24.0,
                     ),
+                    const SizedBox(height: 4.0),
                     screenText(
                         "My\nMeals", 14.0, FontWeight.w400, textLightColor,
-                        wordHeight: true)
+                        wordHeight: 1.0)
                   ],
                 ),
               ),

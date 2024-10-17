@@ -48,6 +48,7 @@ class PlanDetailsScreen extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: scaffoldColor,
       appBar: screenAppBar(context,
           showProfile: false, showText: true, text: planDetails['title']),
       body: Padding(

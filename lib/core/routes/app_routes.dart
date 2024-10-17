@@ -6,6 +6,7 @@ import 'package:homy/screens/auth/otp_verification_screen.dart';
 import 'package:homy/screens/community/community_screen.dart';
 import 'package:homy/screens/health-score/health_score_screen.dart';
 import 'package:homy/screens/meal-planner/meal_planner_screen.dart';
+import 'package:homy/screens/my-meals/my_meals_screen.dart';
 import 'package:homy/screens/notifications/notifications_screen.dart';
 import 'package:homy/screens/onboarding/onboarding_screen.dart';
 import 'package:homy/screens/onboarding/welcome_screen.dart';
@@ -86,6 +87,9 @@ class AppRoutes {
         break;
       case Routes.mealPlannerScreen:
         page = const MealPlannerScreen();
+        break;
+      case Routes.myMealsScreen:
+        page = const MyMealsScreen();
         break;
       default:
         page = const Scaffold(

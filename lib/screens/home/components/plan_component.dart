@@ -20,7 +20,7 @@ Widget planContainerWidget(
           width: width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
-            color: Color(0x80000000),
+            color: const Color(0x80000000),
           ),
         ),
         screenText(text, 20.0, FontWeight.bold, textLightColor)

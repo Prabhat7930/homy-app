@@ -81,6 +81,15 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
   late int morningPrice;
   late int eveningPrice;
 
+  void onCheckoutButtonTap() {
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease,
+    );
+
+    if (pageCounter == 1) {}
+  }
+
   @override
   void initState() {
     super.initState();
@@ -89,13 +98,13 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
     eveningPrice = widget.eveningPrice;
   }
 
-  void onCheckoutButtonTap() {
-    pageController.nextPage(
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
-    );
-
-    if (pageCounter == 1) {}
+  @override
+  void dispose() {
+    pageController.dispose();
+    peopleController.dispose();
+    specialInstructionController.dispose();
+    couponController.dispose();
+    super.dispose();
   }
 
   @override
