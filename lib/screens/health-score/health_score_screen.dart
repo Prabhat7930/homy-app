@@ -29,6 +29,11 @@ class _HealthScoreScreenState extends State<HealthScoreScreen>
         (route) => false);
   }
 
+  void onPlanBuyButtonTap() {
+    Navigator.pushNamedAndRemoveUntil(
+        context, Routes.plansScreen, (route) => false);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -102,7 +107,7 @@ class _HealthScoreScreenState extends State<HealthScoreScreen>
                       align: TextAlign.start),
                   const SizedBox(height: 40.0),
                   healthScoreContainer(height * 0.35, width * 0.9,
-                      screenTextAsset, onHomeButtonTap, () {}),
+                      screenTextAsset, onHomeButtonTap, onPlanBuyButtonTap),
                 ],
               ),
       ),

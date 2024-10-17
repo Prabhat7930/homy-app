@@ -12,6 +12,7 @@ class PlanCustomizationPageTwo extends StatefulWidget {
   final String? selectedDay;
   final void Function(String? value) onDayChange;
   final void Function(DateTime newDate) onDateSelected;
+  final TextEditingController specialInstructionController;
   final TextEditingController couponController;
 
   const PlanCustomizationPageTwo({
@@ -21,6 +22,7 @@ class PlanCustomizationPageTwo extends StatefulWidget {
     required this.selectedDay,
     required this.onDayChange,
     required this.onDateSelected,
+    required this.specialInstructionController,
     required this.couponController,
   });
 
@@ -34,6 +36,7 @@ class _PlanCustomizationPageTwoState extends State<PlanCustomizationPageTwo> {
   late List<String> dayItems;
   late void Function(String? value) onDayChange;
   late void Function(DateTime newDate) onDateSelected;
+  late TextEditingController specialInstructionController;
   late TextEditingController couponController;
 
   @override
@@ -43,6 +46,7 @@ class _PlanCustomizationPageTwoState extends State<PlanCustomizationPageTwo> {
     dayItems = widget.dayItems;
     onDayChange = widget.onDayChange;
     onDateSelected = widget.onDateSelected;
+    specialInstructionController = widget.specialInstructionController;
     couponController = widget.couponController;
   }
 
@@ -73,6 +77,14 @@ class _PlanCustomizationPageTwoState extends State<PlanCustomizationPageTwo> {
             child: CalendarOption(
                 icon: Icons.calendar_month, onDateSelected: onDateSelected),
           ),
+          const SizedBox(height: 24.0),
+          screenText(
+              "Special Instruction", 14.0, FontWeight.w400, textDarkColor,
+              align: TextAlign.start),
+          const SizedBox(height: 12.0),
+          screenInputField(specialInstructionController, "Add Suggestions...",
+              true, TextInputType.text,
+              maxlines: 4, limitText: 200),
           const SizedBox(height: 24.0),
           screenText("Coupon code", 14.0, FontWeight.w400, textDarkColor,
               align: TextAlign.start),
@@ -127,7 +139,7 @@ class _PlanCustomizationPageTwoState extends State<PlanCustomizationPageTwo> {
           ),
           children: [
             TextSpan(
-              text: "The plan will start 3 days after the booking\ndate.",
+              text: "The plan will start 3 days after the booking date.",
               style: GoogleFonts.instrumentSans(
                 fontSize: 14.0,
                 fontWeight: FontWeight.w400,

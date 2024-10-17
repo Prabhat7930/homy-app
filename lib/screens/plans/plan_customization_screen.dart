@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/plans/components/custom_plan_1.dart';
 import 'package:homy/screens/plans/components/custom_plan_2.dart';
@@ -25,22 +26,26 @@ class PlanCustomizationScreen extends StatefulWidget {
 class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
   final PageController pageController = PageController();
   final TextEditingController peopleController = TextEditingController();
+  final TextEditingController specialInstructionController =
+      TextEditingController();
   final TextEditingController couponController = TextEditingController();
   int pageCounter = 0;
 
   List<String> morningItems = [
+    "7:30",
+    "8:00",
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+  ];
+  List<String> eveningItems = [
+    "5:00",
     "6:00",
     "7:00",
     "8:00",
     "9:00",
     "10:00",
-    "11:00"
-  ];
-  List<String> eveningItems = [
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
   ];
 
   Set<String> selectedMorningItems = {};
@@ -152,6 +157,8 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
                             selectedDay: selectedDay,
                             onDayChange: onDayChange,
                             onDateSelected: onDateSelected,
+                            specialInstructionController:
+                                specialInstructionController,
                             couponController: couponController,
                           )
                         ],
@@ -160,6 +167,10 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
                   ],
                 ),
               ),
+              pageCounter == 0
+                  ? noteText(textAssets[2])
+                  : noteText(textAssets[3]),
+              const SizedBox(height: 8.0),
               screenButton(
                   onCheckoutButtonTap, "Checkout", secondaryColor, width * 0.85)
             ],
@@ -169,8 +180,33 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
     );
   }
 
+  Widget noteText(String text) {
+    return RichText(
+      text: TextSpan(
+          text: "Note: ",
+          style: GoogleFonts.instrumentSans(
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold,
+            color: secondaryColor,
+          ),
+          children: [
+            TextSpan(
+              text: text,
+              style: GoogleFonts.instrumentSans(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: textDarkColor,
+              ),
+            ),
+          ]),
+      textAlign: TextAlign.center,
+    );
+  }
+
   final List<String> textAssets = [
-    "Select from the available timings within the 6am to\n1pm slot.",
-    "Select from the available timings within the 3pm to\n8pm slot."
+    "What time would you like your morning (am) meal\nto be ready?",
+    "What time would you like your morning (pm) meal\nto be ready?",
+    "Your meals will be prepared within 15 minutes\nbefore or after the scheduled time.",
+    "The plan will begin within 5 days of booking."
   ];
 }
