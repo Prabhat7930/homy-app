@@ -26,3 +26,27 @@ class PlanCustomizationScreenArgs {
     required this.eveningPrice,
   });
 }
+
+class BillingDetailsScreenArgs {
+  final String planType;
+  final int baseAmount;
+  final int extraPerson;
+  final String morningMealTime;
+  final String eveningMealTime;
+  final String chefOffDay;
+  final DateTime planStartDate;
+  final String specialInstruction;
+  final int couponDiscount;
+
+  BillingDetailsScreenArgs({
+    required this.planType,
+    required this.baseAmount,
+    required this.extraPerson,
+    required this.morningMealTime,
+    required this.eveningMealTime,
+    required this.chefOffDay,
+    required this.planStartDate,
+    this.specialInstruction = "",
+    this.couponDiscount = 0,
+  });
+}

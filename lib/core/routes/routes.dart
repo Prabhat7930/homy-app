@@ -16,4 +16,6 @@ class Routes {
   static const planCustomizationScreen = "/plan-customize";
   static const mealPlannerScreen = "/meal-planner";
   static const myMealsScreen = "/my-meals";
+  static const profileScreen = "/profile";
+  static const billingScreen = "/billing-details";
 }

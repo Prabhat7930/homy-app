@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/utils/text_component.dart';
 
@@ -34,12 +35,17 @@ PreferredSizeWidget screenAppBar(BuildContext context,
               ),
         actions: [
           showProfile == true
-              ? const Padding(
-                  padding: EdgeInsets.only(right: 24.0),
-                  child: Icon(
-                    Icons.account_circle,
-                    size: 32.0,
-                    color: secondaryColor,
+              ? Padding(
+                  padding: const EdgeInsets.only(right: 24.0),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.profileScreen);
+                    },
+                    child: const Icon(
+                      Icons.account_circle,
+                      size: 32.0,
+                      color: secondaryColor,
+                    ),
                   ),
                 )
               : (showText == false

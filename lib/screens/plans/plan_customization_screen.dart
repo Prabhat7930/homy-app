@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:homy/core/routes/route_arguments.dart';
+import 'package:homy/core/routes/routes.dart';
 import 'package:homy/core/theme/color_theme.dart';
 import 'package:homy/screens/plans/components/custom_plan_1.dart';
 import 'package:homy/screens/plans/components/custom_plan_2.dart';
@@ -31,7 +33,7 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
   final TextEditingController couponController = TextEditingController();
   int pageCounter = 0;
 
-  List<String> morningItems = [
+  List<String> morningTimings = [
     "7:30",
     "8:00",
     "9:00",
@@ -39,7 +41,7 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
     "11:00",
     "12:00",
   ];
-  List<String> eveningItems = [
+  List<String> eveningTimings = [
     "5:00",
     "6:00",
     "7:00",
@@ -48,16 +50,18 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
     "10:00",
   ];
 
-  Set<String> selectedMorningItems = {};
-  Set<String> selectedEveningItems = {};
+  String selectedMorningTiming = "8:00";
+  String selectedEveningTiming = "8:00";
 
-  void toggleSelectedItem(String item, Set<String> selectedItems) {
+  void toggleSelectedMorningTiming(String timing) {
     setState(() {
-      if (selectedItems.contains(item)) {
-        selectedItems.remove(item);
-      } else {
-        selectedItems.add(item);
-      }
+      selectedMorningTiming = timing;
+    });
+  }
+
+  void toggleSelectedEveningTiming(String timing) {
+    setState(() {
+      selectedEveningTiming = timing;
     });
   }
 
@@ -87,7 +91,41 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
       curve: Curves.ease,
     );
 
-    if (pageCounter == 1) {}
+    if (pageCounter == 1) {
+      String plan = "";
+      switch (planType) {
+        case "basic":
+          plan = "Homy Comfort";
+          break;
+        case "standard":
+          plan = "Homy Fusion";
+          break;
+        case "pro":
+          plan = "Homy Wellness";
+          break;
+      }
+
+      int people = 0;
+      if (peopleController.text != "" && peopleController.text != "null") {
+        people = int.parse(peopleController.text) - 4;
+      }
+
+      Navigator.pushNamed(
+        context,
+        Routes.billingScreen,
+        arguments: BillingDetailsScreenArgs(
+          planType: plan,
+          baseAmount: morningPrice + eveningPrice,
+          extraPerson: people,
+          morningMealTime: selectedMorningTiming,
+          eveningMealTime: selectedEveningTiming,
+          chefOffDay: selectedDay.toString(),
+          specialInstruction: specialInstructionController.text,
+          planStartDate: selectedDate,
+          couponDiscount: 0,
+        ),
+      );
+    }
   }
 
   @override
@@ -154,11 +192,14 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
                           PlanCustomizationPageOne(
                             textAssets: textAssets,
                             peopleController: peopleController,
-                            morningItems: morningItems,
-                            selectedMorningItems: selectedMorningItems,
-                            eveningItems: eveningItems,
-                            selectedEveningItems: selectedEveningItems,
-                            toggleSelectedItem: toggleSelectedItem,
+                            morningTimings: morningTimings,
+                            selectedMorningTiming: selectedMorningTiming,
+                            eveningTimings: eveningTimings,
+                            selectedEveningTiming: selectedEveningTiming,
+                            toggleSelectedMorningTiming:
+                                toggleSelectedMorningTiming,
+                            toggleSelectedEveningTiming:
+                                toggleSelectedEveningTiming,
                           ),
                           PlanCustomizationPageTwo(
                             textAssets: textAssets,
@@ -212,9 +253,9 @@ class _PlanCustomizationScreenState extends State<PlanCustomizationScreen> {
     );
   }
 
-  final List<String> textAssets = [
+  final List<String> textAssets = const [
     "What time would you like your morning (am) meal\nto be ready?",
-    "What time would you like your morning (pm) meal\nto be ready?",
+    "What time would you like your evening (pm) meal\nto be ready?",
     "Your meals will be prepared within 15 minutes\nbefore or after the scheduled time.",
     "The plan will begin within 5 days of booking."
   ];

@@ -10,9 +10,11 @@ import 'package:homy/screens/my-meals/my_meals_screen.dart';
 import 'package:homy/screens/notifications/notifications_screen.dart';
 import 'package:homy/screens/onboarding/onboarding_screen.dart';
 import 'package:homy/screens/onboarding/welcome_screen.dart';
+import 'package:homy/screens/payment/payment_gateway.dart';
 import 'package:homy/screens/plans/plan_customization_screen.dart';
 import 'package:homy/screens/plans/plan_detail_screen.dart';
 import 'package:homy/screens/plans/plans_screen.dart';
+import 'package:homy/screens/profile/profile_screen.dart';
 import 'package:homy/screens/splash/splash_screen.dart';
 import 'package:homy/screens/user-details/diet_plan_screen.dart';
 import 'package:homy/screens/user-details/location_details_screen.dart';
@@ -90,6 +92,23 @@ class AppRoutes {
         break;
       case Routes.myMealsScreen:
         page = const MyMealsScreen();
+        break;
+      case Routes.profileScreen:
+        page = const ProfileScreen();
+        break;
+      case Routes.billingScreen:
+        final args = settings.arguments as BillingDetailsScreenArgs;
+        page = BillingDetailsScreen(
+          planType: args.planType,
+          baseAmount: args.baseAmount,
+          extraPerson: args.extraPerson,
+          morningMealTime: args.morningMealTime,
+          eveningMealTime: args.eveningMealTime,
+          chefOffDay: args.chefOffDay,
+          planStartDate: args.planStartDate,
+          specialInstruction: args.specialInstruction,
+          couponDiscount: args.couponDiscount,
+        );
         break;
       default:
         page = const Scaffold(
